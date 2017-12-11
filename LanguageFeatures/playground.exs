@@ -32,3 +32,26 @@ a === b # strict equality
 a !== b # strict inequality
 a == b # value equality
 a != b # value inequality
+
+# Anonymous Functions
+fn
+  (a, b) -> a + b
+end
+
+swap = fn { a, b } -> { b, a } end
+swap.( { 3, 5 }) # -> { 5, 3 }
+
+list_concat = fn (l1, l2) -> l1 ++ l2 end
+sum = fn (a, b, c) -> a + b + c end
+fb =
+  fn
+    (0, 0, _) -> "FizzBuzz"
+    (0, _, _) -> "Fizz"
+    (_, 0, _) -> "Buzz"
+    (_, _, z) -> z
+  end
+
+fizzBuzz = fn (n) -> fb.(rem(n, 3), rem(n, 5), n) end
+fizzBuzz.(11) # => 11
+fizzBuzz.(15) # => "FizzBuzz"
+
