@@ -55,3 +55,59 @@ fizzBuzz = fn (n) -> fb.(rem(n, 3), rem(n, 5), n) end
 fizzBuzz.(11) # => 11
 fizzBuzz.(15) # => "FizzBuzz"
 
+# Logical Checks
+testVal = 2
+if testVal < 3 do
+  IO.puts "<3"
+else
+  IO.puts "Not <3"
+end
+
+unless test < 3 do
+  IO.puts "Not <3"
+end
+
+cond do
+  testVal == 3 ->
+    IO.puts "Not True"
+  testVal == 1 ->
+    IO.puts "Not True Either"
+  testVal == 2 ->
+    IO.puts "There we go, 2 = 2."
+end
+
+# Modules
+# Modules allow us to define named functions that can be used in other places.
+defmodule LearnElixir do
+  @hoursToLearnSyntax 5
+
+  def learnSyntax(hours) do
+    if hours < @hoursToLearnSyntax do
+      IO.puts "You need to work more on the syntax."
+    else
+      IO.puts "Good work, keep at it."
+    end
+  end
+
+  def learnFeatures(hours) do
+    if hours < 100 do
+      IO.puts "You need to work more on the language features."
+    else
+      IO.puts "Good work, keep at it. You'll be a master soon."
+    end
+  end
+
+  defp learnPrivately() do
+    IO.puts "Take a break."
+  end
+end
+
+# Pipe Operator
+# The pipe operator is like nesting functions.
+splitString = "This is a statement with no punctuation" |> String.split()
+splitStringNoPipes = String.split "This is a statement with no punctuation"
+
+# Comprehensions
+listOfInts = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+oddInts = for x <- listOfInts, rem(x, 2) != 0, do: x
+evenInts = for x <- 1..100, rem(x, 2) == 0, do: x
