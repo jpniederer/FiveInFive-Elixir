@@ -2,10 +2,10 @@
 x = 42
 y = 2
 
-// List
+# List
 words = ["hi", "hello", "howdy"]
 
-// Function
+# Function
 logThenReturn = fn (t) -> 
   IO.puts t
   t
@@ -13,13 +13,13 @@ end
 
 someValue = logThenReturn.("a string")
 
-// Tuple
+# Tuple
 t = {"key", 6}
 
-// List Comprehensions (a form of looping)
+# List Comprehensions (a form of looping)
 numbers = for x <- 1..10, do: x
 
-// Recursion
+# Recursion
 defmodule Recursion do
   def power(x, y) do
     powerIter(x, y, 1)
